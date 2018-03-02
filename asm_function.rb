@@ -32,7 +32,7 @@ module ASMFunction
   end
 
   def self.unmap_function(func)
-    munmap(FFI::Pointer.new(func.address), mapping_sizes[mem.address])
-    mapping_sizes.delete(mem.address)
+    munmap(FFI::Pointer.new(func.address), mapping_sizes[func.address])
+    mapping_sizes.delete(func.address)
   end
 end
