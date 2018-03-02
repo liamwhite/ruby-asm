@@ -56,7 +56,7 @@ module RubyCompiler
         when :opt_send_without_block
           arguments = operator_stack.pop(args[0][:orig_argc])
           receiver = operator_stack.pop
-          operator_stack.push [:opt_send_without_block, receiver, arguments]
+          operator_stack.push [:opt_send_without_block, args[0][:mid], receiver, *arguments]
         when :leave
           return_val = operator_stack.pop
           operator_stack.push [:leave, return_val]
